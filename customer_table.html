@@ -1,0 +1,33 @@
+<html>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+	<body>
+		<div id="customerApp">
+			<div id="customer_details"> <p>Customer details </p>
+				CheckList Name: <input type="text" id="firstName" v-model="firstName">
+				<!-- Last Name:<input type="text" id="lastName" v-model="lastName">
+				Address:<input type="text" id="Address" v-model="address"> -->
+				<button id="addButton" v-on:click = "addCheckList">Add</button>
+				<div id="custcomponent">
+					<div id="todo_list"> 
+					<u> Todo List : </u>
+						<customertable v-for="(list,index) in todoList" 
+						v-bind:key = "list.firstName" 
+						v-bind:index="index" 
+						v-bind:list="list" 
+						v-on:removecustomer="completedListMethod(index,list)">
+						</customertable>
+					</div>
+					<div id="completed_list"> <u> Completed List : </u>
+					<customertable v-for="(list,index) in completedList" 
+						v-bind:key = "list.firstName" 
+						v-bind:index="index" 
+						v-bind:list="list" 
+						v-on:removecustomer="completedListMethod(index,list)">
+						</customertable>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="customer_vue.js"></script>
+</html>
